@@ -6,6 +6,7 @@ const App = () => {
   const [appArray, setAppArray] = useState([]);
   const [pictures, setPictures] = useState();
   const [information, setInformation] = useState();
+  console.log("hhh", appData);
 
   useEffect(() => {
     fetch("https://j0.wlmediahub.com/App_Themes/api/test/photos.js")
@@ -34,13 +35,17 @@ const App = () => {
     }
 
     setAppArray(arr2);
-    setPictures(appData.photo[appArray[0]].img);
+    setPictures(appData.photo[arr2[0]].img);
   };
 
   return (
     <div className="main-pictures">
       <div className="container">
-        <img className="img" src={pictures} />
+        {pictures ? (
+          <img className="img" src={pictures} />
+        ) : (
+          <div class="loader"></div>
+        )}
         <div class="middle">
           {information && <div class="text">{information.title}</div>}
           {information && information.description && (
