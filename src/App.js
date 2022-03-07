@@ -6,7 +6,6 @@ const App = () => {
   const [appArray, setAppArray] = useState([]);
   const [pictures, setPictures] = useState();
   const [information, setInformation] = useState();
-  console.log("hhh", appData);
 
   useEffect(() => {
     fetch("https://j0.wlmediahub.com/App_Themes/api/test/photos.js")
